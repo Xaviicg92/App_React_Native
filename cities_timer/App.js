@@ -1,10 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react'
+import { MyContext } from "./app/common/myContext";
 import { StyleSheet, Text, View } from 'react-native';
 import { MyContextProvider } from './app/common/myContext';
-import { LoginContainer } from './app/pods/login/login.container';
-import { MyStack } from './app/pods/login/routes/app.router';
+import { MyStack } from './app/core/routes/app.router';
+import { LoadingIndicator } from './app/pods/loader/loader.component';
 
 export default function App() {
+
+  const { currentImage } = React.useContext(MyContext);
+  console.log(currentImage)
   return (
     <MyContextProvider>
       <MyStack></MyStack>
